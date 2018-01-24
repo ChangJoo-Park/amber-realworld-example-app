@@ -9,10 +9,10 @@ h1 Edit Profile
   == csrf_tag
   .form-group
     input.form-control type="text" name="username" placeholder="User Name" value="#{user.username}"
-  .form-group
-    label
-      input type="checkbox" name="admin" value="#{user.admin}"
-      | Admin
+  / .form-group
+  /   label
+  /     input type="checkbox" name="admin" value="#{user.admin}"
+  /     | Admin
   .form-group
     input.form-control type="email" name="email" placeholder="Email" value="#{user.email}"
   .form-group
