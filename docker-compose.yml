@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    image: realworld-amber-framework
+    command: amber watch
+    environment:
+      DATABASE_URL: postgres://admin:password@db:5433/realworld_amber_framework_development
+    ports:
+      - 3000:3000
+    links:
+      - db
+    volumes:
+    - .:/app
+    - nodes:/app/node_modules
+    - shards:/app/lib
+
+  migrate:
+    build: .
+    image: realworld-amber-framework
+    command: bash -c 'while ! nc -q 1 db 5433 </dev/null; do sleep 1; done && amber db migrate seed'
+    environment:
+      DATABASE_URL: postgres://admin:password@db:5433/realworld_amber_framework_development
+    volumes:
+      - .:/app
+    links:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: realworld_amber_framework_development
+    volumes:
+      - db:/var/lib/postgres/data
+
+volumes:
+  db:
+  nodes:
+  shards:

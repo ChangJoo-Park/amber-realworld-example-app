@@ -1,0 +1,33 @@
+secret_key_base: l0mlfK4IzYU98VVK3jQ-Nym9YIp8YoApydHyoQCmtCw
+port: 3000
+name: realworld-amber-framework
+logging:
+  severity: debug
+  colorize: true
+  filter:
+    - password
+    - confirm_password
+  skip:
+    -
+  context:
+    - request
+    - session
+    - headers
+    - cookies
+    - params
+
+host: 0.0.0.0
+port_reuse: true
+process_count: 1
+# ssl_key_file:
+# ssl_cert_file:
+redis_url: "redis://localhost:6379"
+database_url: postgres://postgres:@localhost:5433/realworld_amber_framework_development
+session:
+  key: amber.session
+  store: signed_cookie
+  expires: 0
+
+secrets:
+  description: Store your development secrets credentials and settings here.
+

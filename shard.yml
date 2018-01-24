@@ -1,0 +1,39 @@
+name: realworld-amber-framework
+version: 0.1.0
+
+authors:
+  - ChangJoo Park(박창주) <pcjpcj2@gmail.com>
+
+crystal: 0.24.1
+
+license: UNLICENSED
+
+targets:
+  realworld-amber-framework:
+    main: src/realworld-amber-framework.cr
+
+dependencies:
+  amber:
+    github: amberframework/amber
+    version: 0.6.4
+
+  granite_orm:
+    github: amberframework/granite-orm
+    version: ~> 0.8.2
+
+  quartz_mailer:
+    github: amberframework/quartz-mailer
+    version: ~> 0.4.0
+
+  jasper_helpers:
+    github: amberframework/jasper-helpers
+    version: ~> 0.1.6
+
+  pg:
+    github: will/crystal-pg
+    version: ~> 0.14.1
+
+development_dependencies:
+  garnet_spec:
+    github: amberframework/garnet-spec
+    version: ~> 0.1.1
