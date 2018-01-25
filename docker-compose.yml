@@ -6,7 +6,7 @@ services:
     image: realworld-amber-framework
     command: amber watch
     environment:
-      DATABASE_URL: postgres://admin:password@db:5433/realworld_amber_framework_development
+      DATABASE_URL: postgres://admin:password@db:5432/realworld_amber_framework_development
     ports:
       - 3000:3000
     links:
@@ -19,9 +19,9 @@ services:
   migrate:
     build: .
     image: realworld-amber-framework
-    command: bash -c 'while ! nc -q 1 db 5433 </dev/null; do sleep 1; done && amber db migrate seed'
+    command: bash -c 'while ! nc -q 1 db 5432 </dev/null; do sleep 1; done && amber db migrate seed'
     environment:
-      DATABASE_URL: postgres://admin:password@db:5433/realworld_amber_framework_development
+      DATABASE_URL: postgres://admin:password@db:5432/realworld_amber_framework_development
     volumes:
       - .:/app
     links:
