@@ -16,6 +16,10 @@ shards:
     github: crystal-lang/crystal-db
     version: 0.5.0
 
+  faker:
+    github: askn/faker
+    version: 0.3.0
+
   garnet_spec:
     github: amberframework/garnet-spec
     version: 0.1.1
