@@ -3,6 +3,7 @@ require "../config/application.cr"
 
 User.clear
 user = User.new
+user.username = "Admin"
 user.email = "admin@example.com"
 user.password = "password"
 user.save
@@ -19,5 +20,6 @@ Article.clear
   article = Article.new
   article.title = Faker::Lorem.sentence
   article.body = Faker::Lorem.paragraph(4)
+  article.user = user
   article.save
 end
