@@ -19,6 +19,7 @@ Article.clear
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each do |index|
   article = Article.new
   article.title = Faker::Lorem.sentence
+  article.summary = Faker::Lorem.sentence
   article.body = Faker::Lorem.paragraph(4)
   article.user = user
   article.save
