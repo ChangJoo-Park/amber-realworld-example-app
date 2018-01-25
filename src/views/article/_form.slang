@@ -8,6 +8,8 @@
   div.form-group
   == text_field(name: "title", value: article.title, placeholder: "Title", class: "form-control")
   div.form-group
+  == text_field(name: "summary", value: article.summary, placeholder: "Summary", class: "form-control")
+  div.form-group
   == text_area(name: "body", content: article.body, placeholder: "Body", class: "form-control", size: "30x10")
   div.form-group
     == label(:user)

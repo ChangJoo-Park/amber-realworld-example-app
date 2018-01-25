@@ -10,6 +10,7 @@ class Article < Granite::ORM::Base
   # id : Int64 primary key is created for you
   field title : String
   field body : String
+  field summary : String
   timestamps
 
   def self.search(tag)

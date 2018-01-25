@@ -31,7 +31,7 @@ div.container
             h1
               == article.title
             p
-              == article.body
+              == article.summary
             span Read more...
             ul.tag-list
               li.tag-default.tag-pill.tag-outline

@@ -68,6 +68,7 @@ class ArticleController < ApplicationController
     params.validation do
       required(:title) { |f| !f.nil? }
       required(:body) { |f| !f.nil? }
+      required(:summary) { |f| !f.nil? }
       required(:user_id) { |f| !f.nil? }
       required(:tag_id) { |f| !f.nil? }
     end
