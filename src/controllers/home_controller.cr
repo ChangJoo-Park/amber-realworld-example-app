@@ -7,9 +7,6 @@ class HomeController < ApplicationController
     tags = Tag.all
     if tag
       selectedTag = Tag.find(tag)
-      puts "==="
-      puts selectedTag
-      puts "==="
     end
     render("index.slang")
   end
