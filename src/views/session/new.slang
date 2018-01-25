@@ -1,16 +1,22 @@
-h1 Sign In
+.auth-page
+  .container.page
+    .row
+      .col-md-6.offset-md-3.col-xs-12
+        h1.text-xs-center Sign In
 
-- if user.errors
-  ul.errors
-  - user.errors.each do |error|
-    li = error.to_s
+        - if user.errors
+          ul.error-messages
+          - user.errors.each do |error|
+            li = error.to_s
 
-form action="/session" method="post"
-  == csrf_tag
-  div.form-group
-    input.form-control type="email" name="email" placeholder="Email"
-  div.form-group
-    input.form-control type="password" name="password" placeholder="Password"
-  button.btn.btn-primary.btn-xs type="submit" Sign In
-<hr/>
-== link_to("Don't have an account yet?", "/signup")
+        form action="/session" method="post"
+          == csrf_tag
+          fieldset.form-group
+            input.form-control type="email" name="email" placeholder="Email"
+          fieldset.form-group
+            input.form-control type="password" name="password" placeholder="Password"
+          button.btn.btn-lg.btn-primary.pull-xs-right type="submit"
+            | Sign In
+
+
+
