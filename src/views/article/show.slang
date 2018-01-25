@@ -1,9 +1,24 @@
-h1 Show Article
-p = article.title
-p = article.body
-p = article.user.id
-p = article.tag.id
-p
-  == link_to("back", "/articles", class: "btn btn-success btn-xs")
-  == link_to("edit", "/articles/#{article.id}/edit", class: "btn btn-success btn-xs")
-  == link_to("delete", "/articles/#{article.id}?_method=delete&_csrf=#{csrf_token}", class: "btn btn-danger btn-xs", onclick: "return confirm('Are you sure?');")
+div.article-page
+  .banner
+    .container
+      h1 = article.title
+
+      div.article-meta
+        a href="#"
+          img src="http://i.imgur.com/Qr71crq.jpg"
+        div.info
+          a.author href="#" = article.user.username
+          span.date = article.created_at
+        button.btn.btn-sm.btn-outline-secondary
+          i.ion-plus-round
+          |  Follow
+          = article.user.username
+          span.counter (10)
+        button.btn.btn-sm.btn-outline-primary
+          i.ion-heart
+          |  Favorite Post
+          span.counter (29)
+
+  .container.page
+    .row.article-content
+      .col-md-12 = article.body
