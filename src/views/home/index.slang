@@ -27,7 +27,7 @@ div.container
             button.btn.btn-outline-primary.btn-sm.pull-xs-right
               i.ion-heart
               |  29
-          a.preview-link href=""
+          == link_to "/articles/#{article.id}", class: "preview-link" do
             h1
               == article.title
             p
