@@ -35,6 +35,7 @@ class UserController < ApplicationController
     params.validation do
       required(:email) {|f| !f.nil? && !f.empty? }
       required(:username) {|f| !f.nil? && !f.empty? }
+      optional(:profile_image) {|f| !f.nil? && !f.empty? }
       optional(:bio) {|f| !f.nil? && !f.empty? }
       optional(:password) {|f| !f.nil? && !f.empty? }
     end

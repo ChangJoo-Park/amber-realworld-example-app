@@ -7,6 +7,7 @@ class User < Granite::ORM::Base
   primary id : Int64
   field email : String
   field username : String
+  field profile_image : String
   field bio : String
   field admin : Bool
   field hashed_password : String
