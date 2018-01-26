@@ -19,11 +19,11 @@ div.container
           a class="nav-link" href="/profile"
             == current_user.email
     - else
-      - active = context.request.path == "/signup" ? "active" : ""
-      li class="nav-item #{active}"
-        a class="nav-link" href="/signup"
-          | Sign Up
       - active = context.request.path == "/signin" ? "active" : ""
       li class="nav-item #{active}"
         a class="nav-link" href="/signin"
           | Sign In
+      - active = context.request.path == "/signup" ? "active" : ""
+      li class="nav-item #{active}"
+        a class="nav-link" href="/signup"
+          | Sign Up
