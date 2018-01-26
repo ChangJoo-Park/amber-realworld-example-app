@@ -9,7 +9,9 @@ div.container
       div.feed-toggle
         ul.nav.nav-pills.outline-active
           li.nav-item
-            == link_to("전체보기", "/", class: "nav-link")
+            a href="#" Your Feed
+          li.nav-item
+            == link_to("Global Feed", "/", class: "nav-link")
           - if selectedTag
             li.nav-item
               == link_to("#{selectedTag.name}", "/?tag=#{selectedTag.id}", class: "nav-link")
