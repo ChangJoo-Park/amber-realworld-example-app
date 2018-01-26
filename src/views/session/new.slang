@@ -3,6 +3,8 @@
     .row
       .col-md-6.offset-md-3.col-xs-12
         h1.text-xs-center Sign In
+        p.text-xs-center
+          == link_to("Need an account?", "/register")
 
         - if user.errors
           ul.error-messages
