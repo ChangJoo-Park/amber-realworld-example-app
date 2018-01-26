@@ -14,9 +14,11 @@
         form action="/registration" method="post"
           == csrf_tag
           fieldset.form-group
-            input.form-control type="email" name="email" placeholder="Email"
+            input.form-control.form-control-lg type="text" name="username" placeholder="Username"
           fieldset.form-group
-            input.form-control type="password" name="password" placeholder="Password"
+            input.form-control.form-control-lg type="email" name="email" placeholder="Email"
+          fieldset.form-group
+            input.form-control.form-control-lg type="password" name="password" placeholder="Password"
           button.btn.btn-lg.btn-primary.pull-xs-right type="submit"
             | Sign Up
 
