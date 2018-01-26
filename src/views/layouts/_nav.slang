@@ -11,13 +11,20 @@ div.container
     li class="nav-item #{active}"
       a class="nav-link" href="/tags" Tags
     - if (current_user = context.current_user)
-      li class="nav-item #{active}"
-        a.nav-link href="/signout"
-          | Sign Out
+        - active = context.request.path == "/articles/new" ? "active" : ""
+        li class="nav-item #{active}"
+          a class="nav-link" href="/articles/new"
+            i.ion-compose
+            | New Article
+        - active = context.request.path == "/settings" ? "active" : ""
+        li class="nav-item #{active}"
+          a class="nav-link" href="/settings"
+            i.ion-gear-a
+            | Settings
         - active = context.request.path == "/profile" ? "active" : ""
         li class="nav-item #{active}"
           a class="nav-link" href="/profile"
-            == current_user.email
+            == current_user.username
     - else
       - active = context.request.path == "/signin" ? "active" : ""
       li class="nav-item #{active}"
