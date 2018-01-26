@@ -11,7 +11,7 @@
         == form(action: "/profile", method: :patch) do
           == csrf_tag
           .form-group
-            input.form-control type="text" name="image" placeholder="URL of profile picture"
+            input.form-control type="text" name="profile_image" placeholder="URL of profile picture" value="#{user.profile_image}"
           .form-group
             input.form-control.form-control-lg type="text" name="username" placeholder="User Name" value="#{user.username}"
           .form-group

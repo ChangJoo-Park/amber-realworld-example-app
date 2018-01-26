@@ -20,7 +20,7 @@ div.container
         div.article-preview
           div.article-meta
             a href=""
-              img src="http://i.imgur.com/Qr71crq.jpg"
+              img src="#{article.user.profile_image}"
             div.info
               a href="" class="author"
                 == article.user.username
