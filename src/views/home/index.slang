@@ -44,6 +44,6 @@ div.container
       div.sidebar
         p Popular Tags
 
-      div.tag-list
-      - tags.each do |tag|
-        == link_to("#{tag.name}", "/?tag=#{tag.id}", class: "tag-pill tag-default")
+        div.tag-list
+          - tags.each do |tag|
+            == link_to("#{tag.name}", "/?tag=#{tag.id}", class: "tag-pill tag-default")
