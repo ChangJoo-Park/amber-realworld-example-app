@@ -5,7 +5,7 @@ div.article-page
 
       div.article-meta
         a href="#"
-          img src="http://i.imgur.com/Qr71crq.jpg"
+          img src="#{article.user.profile_image}"
         div.info
           a.author href="#" = article.user.username
           span.date = article.created_at
@@ -28,7 +28,7 @@ div.article-page
     .article-actions
       .article-meta
         a href="#"
-        img src="http://i.imgur.com/Qr71crq.jpg"
+        img src="#{article.user.profile_image}"
       .info
         a.author href="" = article.user.username
         span.date = article.created_at
