@@ -7,6 +7,7 @@ user.username = "Admin"
 user.profile_image = "http://placehold.it/50x50.jpg/ffffff/000?text=Admin"
 user.email = "admin@example.com"
 user.password = "password"
+user.admin = true
 user.save
 
 Tag.clear
