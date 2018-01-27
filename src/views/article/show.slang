@@ -29,9 +29,9 @@ div.article-page
       .article-meta
         a href="#"
         img src="#{article.user.profile_image}"
-      .info
-        a.author href="" = article.user.username
-        span.date = article.created_at
+        .info
+          a.author href="" = article.user.username
+          span.date = article.created_at
 
         button.btn.btn-sm.btn-outline-secondary
           i.ion-plus-round
