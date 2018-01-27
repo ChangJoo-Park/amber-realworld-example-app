@@ -25,7 +25,7 @@ div.home-page
                 a href="" class="author"
                   == article.user.username
                 span.date
-                  == article.user.created_at
+                  == article.created_at
               button.btn.btn-outline-primary.btn-sm.pull-xs-right
                 i.ion-heart
                 |  29
