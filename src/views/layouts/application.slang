@@ -13,7 +13,6 @@ html
   body
     nav.navbar.navbar-light
       == render(partial: "layouts/_nav.slang")
-    div.row
     - flash.each do |key, value|
       div class="alert alert-#{ key }"
         p = flash[key]
