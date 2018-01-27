@@ -11,18 +11,19 @@
         == form(action: "/profile", method: :patch) do
           == csrf_tag
           .form-group
-            input.form-control type="text" name="profile_image" placeholder="URL of profile picture" value="#{user.profile_image}"
+            == text_field name: "profile_image", value: "#{user.profile_image}", placeholder: "URL of profile picture", class: "form-control"
           .form-group
-            input.form-control.form-control-lg type="text" name="username" placeholder="User Name" value="#{user.username}"
+            == text_field name: "username", value: "#{user.username}", placeholder: "User Name", class: "form-control form-control-lg"
           .form-group
-            textarea.form-control.form-control-lg name="Short bio about you" placeholder="Bio" value="#{user.bio}" rows="8"
+            == text_area name: "bio", content: "#{user.bio}", placeholder: "Short bio about you", rows: "8", class: " form-control form-control-lg"
           .form-group
-            input.form-control.form-control-lg type="email" name="email" placeholder="Email" value="#{user.email}"
+            == text_field name: "email", value: "#{user.email}", placeholder: "Email", class: "form-control form-control-lg"
           .form-group
             input.form-control.form-control-lg type="password" name="password" placeholder="New Password" value="#{user.password}"
           .form-group
             == submit("Update Settings", class: "btn btn-lg btn-primary pull-xs-right")
 
-        hr style="clear: both; margin-top: 5px;"
+        div style="clear: both"
+        hr style="margin-top: 5px;"
         == link_to("Or click here to logout.", "/profile", class: "btn btn-outline-danger")
 
