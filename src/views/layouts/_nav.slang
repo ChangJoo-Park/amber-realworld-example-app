@@ -4,12 +4,6 @@ div.container
     - active = context.request.path == "/" ? "active" : ""
     li class="nav-item #{active}"
       a class="nav-link" href="/" Home
-    - active = context.request.path == "/articles" ? "active" : ""
-    li class="nav-item #{active}"
-      a class="nav-link" href="/articles" Articles
-    - active = context.request.path == "/tags" ? "active" : ""
-    li class="nav-item #{active}"
-      a class="nav-link" href="/tags" Tags
     - if (current_user = context.current_user)
         - active = context.request.path == "/articles/new" ? "active" : ""
         li class="nav-item #{active}"
