@@ -42,3 +42,12 @@ div.article-page
           i.ion-heart
           |  Favorite Post
           span.counter (29)
+
+    - unless signed_in?
+      .row
+        .col-xs-12.col-md-8.offset-md-2
+          p
+          a href="/signin" Sign in
+          | or
+          a href="/signup" sign up
+          | to add comments on this article.
