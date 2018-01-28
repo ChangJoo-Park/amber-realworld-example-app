@@ -64,6 +64,13 @@ class ArticleController < ApplicationController
     redirect_to "/articles"
   end
 
+  def favorite
+    if (user = current_user)
+      puts user
+    end
+    redirect_back status: 302
+  end
+
   def article_params
     params.validation do
       required(:title) { |f| !f.nil? }
