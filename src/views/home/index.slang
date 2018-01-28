@@ -26,7 +26,7 @@ div.home-page
                   == article.user.username
                 span.date
                   == article.created_at
-              == form(action: "/articles/#{article.id}/favorite", method: :post) do
+              == form(action: "/articles/#{article.id}/favorite", method: :put) do
                 == csrf_tag
                 button.btn.btn-outline-primary.btn-sm.pull-xs-right
                   i.ion-heart
