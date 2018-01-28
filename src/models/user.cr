@@ -13,6 +13,8 @@ class User < Granite::ORM::Base
   field hashed_password : String
   timestamps
 
+  has_many :articles
+
   validate :email, "is required", -> (user : User) do
     (email = user.email) ? !email.empty? : false
   end
