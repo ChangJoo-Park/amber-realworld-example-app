@@ -6,6 +6,8 @@ class Article < Granite::ORM::Base
 
   belongs_to :user
   belongs_to :tag
+  has_many :favorites
+  has_many :favorite_users, through: favorites
 
   # id : Int64 primary key is created for you
   field title : String
