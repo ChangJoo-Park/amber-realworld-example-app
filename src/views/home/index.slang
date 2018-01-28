@@ -26,9 +26,11 @@ div.home-page
                   == article.user.username
                 span.date
                   == article.created_at
-              button.btn.btn-outline-primary.btn-sm.pull-xs-right
-                i.ion-heart
-                |  29
+              == form(action: "/articles/#{article.id}/favorite", method: :post) do
+                == csrf_tag
+                button.btn.btn-outline-primary.btn-sm.pull-xs-right
+                  i.ion-heart
+                  |  29
             == link_to "/articles/#{article.id}", class: "preview-link" do
               h1
                 == article.title
