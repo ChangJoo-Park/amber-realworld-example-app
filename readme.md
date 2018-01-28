@@ -18,5 +18,20 @@ For more information on how to this works with other frontends/backends, head ov
 
 # Getting started
 
-> npm install, npm start, etc.
+## Install Crystal
 
+Read official [installation documentation](https://crystal-lang.org/docs/installation/)
+
+## Install Amber Framework
+
+Read official [installation documentation](https://amberframework.org/guides/getting-started/Installation/README.md#installation)
+
+## Install Project
+
+```bash
+git clone https://github.com/ChangJoo-Park/amber-realworld-example-app
+cd amber-realworld-example-app
+shards install # install dependencies
+amber db drop create migrate seed # initialize, migrate databases
+amber w # run dev server
+```
