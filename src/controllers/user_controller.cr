@@ -4,7 +4,10 @@ class UserController < ApplicationController
   end
 
   def show
-    render("show.slang") if (user = current_user)
+    if (user = current_user)
+      articles = user.articles
+      render("show.slang")
+    end
   end
 
   def edit
