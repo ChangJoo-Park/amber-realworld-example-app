@@ -8,7 +8,7 @@ div.article-page
           img src="#{article.user.profile_image}"
         div.info
           a.author href="#" = article.user.username
-          span.date = article.created_at
+          span.date == time_to_string(article.created_at.not_nil!)
         button.btn.btn-sm.btn-outline-secondary
           i.ion-plus-round
           |  Follow
@@ -39,7 +39,7 @@ div.article-page
         img src="#{article.user.profile_image}"
         .info
           a.author href="" = article.user.username
-          span.date = article.created_at
+          span.date == time_to_string(article.created_at.not_nil!)
 
         button.btn.btn-sm.btn-outline-secondary
           i.ion-plus-round
