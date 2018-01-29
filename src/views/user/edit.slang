@@ -25,5 +25,4 @@
 
         div style="clear: both"
         hr style="margin-top: 5px;"
-        == link_to("Or click here to logout.", "/profile", class: "btn btn-outline-danger")
-
+        == link_to("Or click here to logout.", "/signout", class: "btn btn-outline-danger")
