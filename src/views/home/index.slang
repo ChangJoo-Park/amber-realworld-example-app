@@ -9,8 +9,9 @@ div.home-page
       div.col-md-9
         div.feed-toggle
           ul.nav.nav-pills.outline-active
-            li.nav-item
-              a.nav-link href="#" Your Feed
+            - if signed_in?
+              li.nav-item
+                a.nav-link href="#" Your Feed
             li.nav-item
               == link_to("Global Feed", "/", class: "nav-link active")
             - if selectedTag
