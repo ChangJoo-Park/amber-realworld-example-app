@@ -26,7 +26,7 @@ shards:
 
   granite_orm:
     github: amberframework/granite-orm
-    version: 0.8.2
+    version: 0.8.3
 
   jasper_helpers:
     github: amberframework/jasper-helpers
@@ -35,6 +35,10 @@ shards:
   kilt:
     github: jeromegn/kilt
     version: 0.4.0
+
+  markd:
+    github: icyleaf/markd
+    version: 0.1.1
 
   micrate:
     github: juanedi/micrate
