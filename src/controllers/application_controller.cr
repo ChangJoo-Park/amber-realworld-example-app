@@ -2,6 +2,8 @@ require "jasper_helpers"
 
 class ApplicationController < Amber::Controller::Base
   include JasperHelpers
+  include Helpers::TimeToStringHelper
+
   LAYOUT = "application.slang"
 
   def current_user
