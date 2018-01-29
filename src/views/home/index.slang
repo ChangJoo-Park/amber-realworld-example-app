@@ -15,7 +15,7 @@ div.home-page
               == link_to("Global Feed", "/", class: "nav-link active")
             - if selectedTag
               li.nav-item
-                == link_to("#{selectedTag.name}", "/?tag=#{selectedTag.id}", class: "nav-link")
+                == link_to("# #{selectedTag.name}", "/?tag=#{selectedTag.id}", class: "nav-link")
 
         - articles.each do |article|
           div.article-preview
