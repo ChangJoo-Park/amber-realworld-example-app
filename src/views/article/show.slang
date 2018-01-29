@@ -29,7 +29,7 @@ div.article-page
 
   .container.page
     .row.article-content
-      .col-md-12 = article.body
+      .col-md-12 == article.content
 
     hr
 

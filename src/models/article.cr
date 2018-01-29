@@ -1,4 +1,6 @@
 require "granite_orm/adapter/pg"
+require "markdown"
+require "autolink"
 
 class Article < Granite::ORM::Base
   adapter pg
@@ -38,5 +40,9 @@ class Article < Granite::ORM::Base
     else
       false
     end
+  end
+
+  def content
+    Autolink.auto_link(Markdown.to_html(body.not_nil!))
   end
 end
