@@ -1,8 +1,9 @@
 div.home-page
-  div.banner
-    div.container
-      h1.logo-font conduit
-      p A place to share your knowledge.
+  - unless signed_in?
+    div.banner
+      div.container
+        h1.logo-font conduit
+        p A place to share your knowledge.
   div.container
     div.row
       div.col-md-9
