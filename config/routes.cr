@@ -28,6 +28,7 @@ Amber::Server.configure do |app|
   routes :web do
     resources "/articles", ArticleController
     resources "/tags", TagController
+    put "/articles/:id/favorite", ArticleController, :favorite
     get "/profile", UserController, :show
     patch "/profile", UserController, :update
     get "/signin", SessionController, :new

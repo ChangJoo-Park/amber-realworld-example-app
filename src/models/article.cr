@@ -6,6 +6,8 @@ class Article < Granite::ORM::Base
 
   belongs_to :user
   belongs_to :tag
+  has_many :favorites
+  # has_many :favorite_users, through: favorites
 
   # id : Int64 primary key is created for you
   field title : String
@@ -19,6 +21,22 @@ class Article < Granite::ORM::Base
       self.all q
     else
       self.all("ORDER BY created_at DESC")
+    end
+  end
+
+  def self.favorite_count (article)
+    q = %Q{ WHERE #{"article_id='#{article.id}'"}}
+    findExistsFavorites = Favorite.all q
+    findExistsFavorites.size
+  end
+
+  def self.is_favorited?(article, current_user)
+    if (user = current_user)
+      q = %Q{ WHERE #{"user_id='#{user.id}'"} AND #{"article_id='#{article.id}'"}}
+      findExistsFavorites = Favorite.all q
+      findExistsFavorites.size > 0
+    else
+      false
     end
   end
 end

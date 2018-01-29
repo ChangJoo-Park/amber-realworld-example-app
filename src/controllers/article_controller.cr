@@ -64,6 +64,31 @@ class ArticleController < ApplicationController
     redirect_to "/articles"
   end
 
+  def favorite
+    # FIXME: Need refactor this codes to models
+    if (article = Article.find params["id"]) && (user = current_user)
+      q = %Q{ WHERE #{"user_id='#{user.id}'"} AND #{"article_id='#{article.id}'"}}
+      if (findExistsFavorites = Favorite.all q)
+        if findExistsFavorites.size > 0
+          findExistsFavorites.each do |f|
+            f.destroy
+          end
+          redirect_back status: 302
+        else
+          favorite = Favorite.new
+          favorite.user = user
+          favorite.article = article
+          if (favorite.save)
+            puts "Succeed"
+            redirect_back status: 302
+          end
+        end
+      end
+    else
+      puts "article not exists"
+    end
+  end
+
   def article_params
     params.validation do
       required(:title) { |f| !f.nil? }
