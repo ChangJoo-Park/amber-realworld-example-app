@@ -30,7 +30,7 @@
                 a href="" class="author"
                   == article.user.username
                 span.date
-                  == article.created_at
+                  == time_to_string(article.created_at.not_nil!)
               button.btn.btn-outline-primary.btn-sm.pull-xs-right
                 i.ion-heart
                 |  29

@@ -27,7 +27,7 @@ div.home-page
                 a href="" class="author"
                   == article.user.username
                 span.date
-                  == article.created_at
+                  == time_to_string(article.created_at.not_nil!)
               - if signed_in?
                 - active = Article.is_favorited?(article, current_user) ? "btn-primary" : "btn-outline-primary"
                 == form(action: "/articles/#{article.id}/favorite", method: :put) do
