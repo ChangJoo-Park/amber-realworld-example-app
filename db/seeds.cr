@@ -29,3 +29,5 @@ tags = Tag.all
   article.tag = tags.sample
   article.save
 end
+
+Favorite.clear
