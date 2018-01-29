@@ -26,11 +26,17 @@ div.home-page
                   == article.user.username
                 span.date
                   == article.created_at
-              == form(action: "/articles/#{article.id}/favorite", method: :put) do
-                == csrf_tag
-                button.btn.btn-outline-primary.btn-sm.pull-xs-right
+              - if signed_in?
+                - active = Article.is_favorited?(article, current_user) ? "btn-primary" : "btn-outline-primary"
+                == form(action: "/articles/#{article.id}/favorite", method: :put) do
+                  == csrf_tag
+                  button.btn.btn-sm.pull-xs-right class="#{active}"
+                    i.ion-heart
+                    == Article.favorite_count article
+              - else
+                == link_to "/signin", class: "btn btn-outline-primary btn-sm pull-xs-right" do
                   i.ion-heart
-                  |  29
+                  == Article.favorite_count(article)
             == link_to "/articles/#{article.id}", class: "preview-link" do
               h1
                 == article.title
@@ -40,10 +46,6 @@ div.home-page
               ul.tag-list
                 li.tag-default.tag-pill.tag-outline
                   == article.tag.name
-            / div
-            /   == link_to("read", "/articles/#{article.id}", class: "btn btn-success btn-xs")
-            /   == link_to("edit", "/articles/#{article.id}/edit", class: "btn btn-success btn-xs")
-            /   == link_to("delete", "/articles/#{ article.id }?_method=delete&_csrf=#{csrf_token}", class: "btn btn-danger btn-xs", onclick: "return confirm('Are you sure?');")
       div.col-md-3
         div.sidebar
           p Popular Tags
