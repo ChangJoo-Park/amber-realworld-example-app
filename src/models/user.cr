@@ -15,7 +15,7 @@ class User < Granite::ORM::Base
 
   has_many :articles
   has_many :favorites
-  has_many :favorite_articles, through: favorites
+  # has_many :favorite_articles, through: favorites
 
   validate :email, "is required", -> (user : User) do
     (email = user.email) ? !email.empty? : false
