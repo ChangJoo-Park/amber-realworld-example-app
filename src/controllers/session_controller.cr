@@ -9,7 +9,7 @@ class SessionController < ApplicationController
     if user && user.authenticate(params["password"].to_s)
         session[:user_id] = user.id
         flash[:info] = "Successfully logged in"
-        redirect_to "/"
+        redirect_to "/?mine=true"
       else
         flash[:danger] = "Invalid email or password"
         user = User.new
