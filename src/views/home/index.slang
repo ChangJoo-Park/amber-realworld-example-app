@@ -1,20 +1,22 @@
 div.home-page
   - unless signed_in?
     == render partial: "_banner.slang"
-
   div.container
     div.row
       div.col-md-9
         div.feed-toggle
           ul.nav.nav-pills.outline-active
             - if signed_in?
+              - active = is_mine ? "active" : ""
               li.nav-item
-                a.nav-link href="#" Your Feed
+                a.nav-link href="/?mine=true" class="#{active}" Your Feed
+            - active = is_global ? "active" : ""
             li.nav-item
-              == link_to("Global Feed", "/", class: "nav-link active")
+              == link_to("Global Feed", "/", class: "nav-link #{active}")
             - if selectedTag
+              - active = has_tag ? "active" : ""
               li.nav-item
-                == link_to("# #{selectedTag.name}", "/?tag=#{selectedTag.id}", class: "nav-link")
+                == link_to("# #{selectedTag.name}", "/?tag=#{selectedTag.id}", class: "nav-link #{active}")
 
         - articles.each do |article|
           == render partial: "_article.slang"

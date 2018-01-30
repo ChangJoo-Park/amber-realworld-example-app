@@ -26,6 +26,11 @@ class Article < Granite::ORM::Base
     end
   end
 
+  def self.find_by_current_user (user)
+    q = %Q{ WHERE #{"user_id='#{user.id}'" if user} ORDER BY created_at DESC }
+    self.all q
+  end
+
   def self.favorite_count (article)
     q = %Q{ WHERE #{"article_id='#{article.id}'"}}
     findExistsFavorites = Favorite.all q
