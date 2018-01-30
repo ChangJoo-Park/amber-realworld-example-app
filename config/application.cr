@@ -1,5 +1,6 @@
 require "./initializers/**"
 require "amber"
+require "../src/helpers/**"
 require "../src/models/**"
 require "../src/handlers/**"
 require "../src/controllers/application_controller"

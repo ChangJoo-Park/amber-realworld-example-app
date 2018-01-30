@@ -33,6 +33,9 @@ dependencies:
     github: will/crystal-pg
     version: ~> 0.14.1
 
+  autolink:
+    github: crystal-community/autolink.cr
+
 development_dependencies:
   garnet_spec:
     github: amberframework/garnet-spec

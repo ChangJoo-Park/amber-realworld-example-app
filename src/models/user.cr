@@ -15,14 +15,15 @@ class User < Granite::ORM::Base
 
   has_many :articles
   has_many :favorites
-  # has_many :favorite_articles, through: favorites
 
-  validate :email, "is required", -> (user : User) do
-    (email = user.email) ? !email.empty? : false
+  validate :email, "is required"  do
+    return true unless email.to_s.blank?
+    false
   end
 
-  validate :password, "is too short", -> (user : User) do
-    user.password_changed? ? user.valid_password_size? : true
+  validate :password, "is too short"  do
+    return password_changed? ? valid_password_size? : true
+    false
   end
 
   def password=(password)

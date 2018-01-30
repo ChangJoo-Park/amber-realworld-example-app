@@ -1,6 +1,6 @@
 {
   "name": "realworld-amber-framework",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Realworld Amber Framework with Amber",
   "private": true,
   "author": "Amber",
@@ -25,3 +25,4 @@
     "extract-text-webpack-plugin": "^3.0.2"
   }
 }
+

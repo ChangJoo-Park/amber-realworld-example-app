@@ -1,4 +1,6 @@
 require "granite_orm/adapter/pg"
+require "markdown"
+require "autolink"
 
 class Article < Granite::ORM::Base
   adapter pg
@@ -24,6 +26,11 @@ class Article < Granite::ORM::Base
     end
   end
 
+  def self.find_by_current_user (user)
+    q = %Q{ WHERE #{"user_id='#{user.id}'" if user} ORDER BY created_at DESC }
+    self.all q
+  end
+
   def self.favorite_count (article)
     q = %Q{ WHERE #{"article_id='#{article.id}'"}}
     findExistsFavorites = Favorite.all q
@@ -38,5 +45,9 @@ class Article < Granite::ORM::Base
     else
       false
     end
+  end
+
+  def content
+    Autolink.auto_link(Markdown.to_html(body.not_nil!))
   end
 end
