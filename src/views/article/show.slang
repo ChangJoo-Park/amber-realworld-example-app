@@ -1,31 +1,12 @@
-div.article-page
+.article-page
   .banner
     .container
       h1 = article.title
 
-      div.article-meta
-        a href="#"
-          img src="#{article.user.profile_image}"
-        div.info
-          a.author href="#" = article.user.username
-          span.date == time_to_string(article.created_at.not_nil!)
-        button.btn.btn-sm.btn-outline-secondary
-          i.ion-plus-round
-          |  Follow
-          = article.user.username
-          span.counter (10)
-        - if signed_in?
-          - active = Article.is_favorited?(article, current_user) ? "btn-primary" : "btn-outline-primary"
-          == form(action: "/articles/#{article.id}/favorite", method: :put, style: "display: inline-block") do
-            == csrf_tag
-            button.btn.btn-sm.btn-outline-primary class="#{active}"
-              i.ion-heart
-              span.counter Favorite Post (#{Article.favorite_count(article)})
-        - else
-          == link_to "/signin", class: "btn btn-outline-primary btn-sm pull-xs-right" do
-            i.ion-heart
-            == Article.favorite_count(article)
-
+      .article-meta
+        == render partial: "_user_info.slang"
+        == render partial: "_follow_button.slang"
+        == render partial: "_favorite_button.slang"
 
   .container.page
     .row.article-content
@@ -35,28 +16,9 @@ div.article-page
 
     .article-actions
       .article-meta
-        a href="#"
-        img src="#{article.user.profile_image}"
-        .info
-          a.author href="" = article.user.username
-          span.date == time_to_string(article.created_at.not_nil!)
-
-        button.btn.btn-sm.btn-outline-secondary
-          i.ion-plus-round
-          |  Follow
-          = article.user.username
-          span.counter (10)
-        - if signed_in?
-          - active = Article.is_favorited?(article, current_user) ? "btn-primary" : "btn-outline-primary"
-          == form(action: "/articles/#{article.id}/favorite", method: :put, style: "display: inline-block") do
-            == csrf_tag
-            button.btn.btn-sm.btn-outline-primary class="#{active}"
-              i.ion-heart
-              span.counter Favorite Post (#{Article.favorite_count(article)})
-        - else
-          == link_to "/signin", class: "btn btn-outline-primary btn-sm pull-xs-right" do
-            i.ion-heart
-            == Article.favorite_count(article)
+        == render partial: "_user_info.slang"
+        == render partial: "_follow_button.slang"
+        == render partial: "_favorite_button.slang"
 
     - unless signed_in?
       .row
