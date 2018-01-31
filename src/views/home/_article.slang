@@ -11,7 +11,7 @@ div.article-preview
       - active = Article.is_favorited?(article, current_user) ? "btn-primary" : "btn-outline-primary"
       == form(action: "/articles/#{article.id}/favorite", method: :put) do
         == csrf_tag
-        button.btn.btn-sm.pull-xs-right class="#{active}"
+        button.btn.btn-sm.pull-xs-right.btn-favorite class="#{active}"
           i.ion-heart
           == Article.favorite_count article
     - else
