@@ -1,6 +1,6 @@
 div.home-page
-  - unless signed_in?
-    == render partial: "_banner.slang"
+  == render partial: "_banner.slang"
+  
   div.container
     div.row
       div.col-md-9
