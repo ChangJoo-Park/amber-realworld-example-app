@@ -21,10 +21,12 @@
       .col-xs-12.col-md-10.offset-md-1
         .articles-toggle
           ul.nav.nav-pills.outline-active
+            - active = is_favorite ? "" : "active"
             li.nav-item
-              a.nav-link.active href="#" My Articles
+              a.nav-link class="#{active}" href="/profile" My Articles
+            - active = is_favorite ? "active" : ""
             li.nav-item
-              a.nav-link href="#" Favorite Articles
+              a.nav-link class="#{active}" href="/profile?favorite=true" Favorite Articles
 
         - articles.each do |article|
           == render partial: "_article.slang"

@@ -5,6 +5,7 @@ class UserController < ApplicationController
 
   def show
     if (user = current_user)
+      is_favorite = favorite_param
       articles = user.articles
       render("show.slang")
     end
@@ -43,4 +44,8 @@ class UserController < ApplicationController
       optional(:password) {|f| !f.nil? && !f.empty? }
     end
   end
+
+  private def favorite_param
+    favorite = params["favorite"]?
+  end 
 end
