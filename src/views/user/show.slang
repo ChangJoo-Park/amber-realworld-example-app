@@ -6,6 +6,11 @@
           img.user-img src="#{user.profile_image}"
           h4 == user.username
           p == user.bio
+
+          button.btn.btn-sm.btn-outline-secondary.action-btn
+            i.ion-gear-a
+            | Edit Profile Setting
+
           button.btn.btn-sm.btn-outline-secondary.action-btn
             i.ion-plus-round
             | Follow
